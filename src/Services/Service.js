@@ -183,11 +183,30 @@ class Service {
   // Function to check whether "Required parmas" exists in 'template' or not.
   checkRequiredParams(props) {
     if (props?.requiredParams?.length > 0) {
+      const params_found = difference(
+        props.requiredParams,
+        keys(this.props.data)
+      );
+      console.log({ params_found });
       console.log(
         "--------------------------------------------------------------------------------------------------"
       );
-      console.log("------------> All check cases have passed.");
-      this.handleNotification(this.props);
+      if (
+        !(keys(this.props.data)?.length > props.requiredParams?.length) &&
+        params_found?.length === 0
+      ) {
+        console.log("------------> Required Params was found.");
+        console.log(
+          "--------------------------------------------------------------------------------------------------"
+        );
+        console.log("--------------> All check cases have passed.");
+        this.handleNotification(this.props);
+      } else {
+        console.log(
+          "------------> ",
+          "Required Params are " + props.requiredParams
+        );
+      }
     } else {
       console.log(
         "--------------------------------------------------------------------------------------------------"

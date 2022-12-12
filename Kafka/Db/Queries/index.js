@@ -1,4 +1,9 @@
-import { Templates, TemplatesLanguages, Users } from "../Models/index.js";
+import {
+  Templates,
+  TemplatesLanguages,
+  Users,
+  UsersNotifications,
+} from "../Models/index.js";
 
 export const findUser = async (data, type) => {
   const result = await Users.findById({ _id: data })
@@ -31,4 +36,19 @@ export const findTemplateLanguages = async (data, type) => {
       return false;
     });
   return result;
+};
+
+export const Activities_Update = async (data, id) => {
+  console.log({ data, id });
+  await UsersNotifications.findByIdAndUpdate(
+    { _id: id },
+    { $push: { activities: { routename: data } } },
+    { upsert: true }
+  )
+    .then((result) => {
+      console.log("Route 3 data was saved", { result });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };

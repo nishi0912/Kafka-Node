@@ -1,6 +1,6 @@
 // Cases
 
-// case 1: - OTP in english by user
+// case 1: - Language in english by user
 //         - Templates - ['en', 'hi','bn']
 //         - Output - 'Your otp is ****', sent through sms.
 const casedata1 = {
@@ -9,16 +9,16 @@ const casedata1 = {
   data: { otp_secret: "4392" },
 };
 
-// case 2: - OTP in hindi by user
+// case 2: - Language in hindi by user
 //         - Templates - ['en', 'hi','bn']
 //         - Output - 'Apka otp hai ****', sent through sms.
 const casedata2 = {
   userid: "634d67a0de8b556c68df59ae",
   templateType: "OTP",
-  data: { otp_secret: "1934" },
+  data: { otp_secret: "1934", testing: "hi" },
 };
 
-// case 3: - OTP in english by user
+// case 3: - Language in english by user
 //         - Templates - ['en', 'hi','bn']
 //         - User notification through  - viaPush, viaEmail and viaSms.
 //         - Subscribed to - sms.
@@ -29,7 +29,7 @@ const casedata3 = {
   data: { otp_secret: "4392" },
 };
 
-// case 4: - OTP in hindi by user
+// case 4: - Language in hindi by user
 //         - Templates - ['en', 'hi','bn']
 //         - User notification through - viaPush, viaEmail and viaSms.
 //         - Subscribed to - push and email.
@@ -40,7 +40,7 @@ const casedata4 = {
   data: { otp_secret: "4392" },
 };
 
-// case 5: - OTP in bengali by user
+// case 5: - Language in bengali by user
 //         - Templates - ['en', 'hi','bn']
 //         - User notification through  - viaPush, viaEmail and viaSms.
 //         - Subscribed to - email.
@@ -51,18 +51,18 @@ const casedata5 = {
   data: { otp_secret: "4392" },
 };
 
-// case 6: - Welcome in bengali by user
+// case 6: - Language in bengali by user
 //         - Templates - ['en', 'hi']
 //         - User notification through  - viaPush, viaEmail and viaSms.
 //         - Subscribed to - email.
 //         - Output - 'Welcome, ****' -> If user selected language does not exist in template, it will output default language('en') as the message language.
 const casedata6 = {
   userid: "634e75dede8b556c68df59b5",
-  templateType: "Welcome",
+  templateType: "OTP",
   data: { user_name: "Dhruv" },
 };
 
-// case 6: - Testing in bengali by user
+// case 7: - Language in bengali by user
 //         - Templates - ['en', 'hi', 'bn]
 //         - User notification through  - nothing, defaults to viaPush.
 //         - Subscribed to - none.

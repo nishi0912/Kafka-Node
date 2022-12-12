@@ -49,6 +49,11 @@ export const NotificationServiceTopicAdmin = async () => {
   //         numPartitions: 3,
   //         replicationFactor: 1,
   //       },
+  //       {
+  //         topic: process.env.MANAGE_USER_TOPIC,
+  //           numPartitions: 3,
+  //           replicationFactor: 1,
+  //       },
   //     ],
   //   })
   //   .then((res) => {
@@ -83,12 +88,14 @@ export const NotificationServiceTopicAdmin = async () => {
   // Delete topic records.
 
   // const deletedRecords = await admin.deleteTopicRecords({
-  //   topic: process.env.DUMMY_TOPIC,
+  //   topic: process.env.MANAGEUSER_SERVICE_TOPIC,
   //   partitions: [
   //     // { partition: 0, offset: "61" }, // delete up to and including offset 29
-  //     { partition: 0, offset: "-1" }, // delete all available records on this partition
+  //     { partition: 0, offset: -1 }, // delete all available records on this partition
   //   ],
   // });
+
+  // deletedRecords;
 
   // // Fetch topic offsets.
 

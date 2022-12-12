@@ -1,13 +1,19 @@
 import mongoosedb from "../index.js";
-import mongoose, { Types } from "mongoose";
+import mongoose, { Schema, Types } from "mongoose";
 
 // User notifications schema creation
 export const user_notifications_schema = new mongoose.Schema(
   {
-    userId: { type: Types.ObjectId, required: true, ref: "User" },
-    templateId: { type: Types.ObjectId, required: true, ref: "Template" },
+    userId: { type: Types.ObjectId, ref: "User" },
+    templateId: { type: Types.ObjectId, ref: "Template" },
     connectionName: { type: String, uniq: true },
     status: { type: Boolean },
+    activities: [
+      {
+        routename: { type: String },
+      },
+    ],
+    rawData: { type: Object, max: 100 },
     templateData: { type: String },
     retry_count: { type: String },
     createdAt: { type: Date, default: Date.now },
